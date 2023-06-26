@@ -1,0 +1,95 @@
+<nav class="bg-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="#" class="text-white text-lg font-semibold">Logo</a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <div class="flex items-center md:hidden">
+        <button id="menu-toggle"
+          class="text-gray-400 hover:text-white focus:outline-none focus:text-white"
+          aria-label="Toggle menu">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Menu Items -->
+  <div class="hidden md:flex md:items-center md:space-x-4" id="menu-items">
+  <a href="<%#=root_path%>" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium" data-turbo-frame="new_page">Home</a>
+  
+  <div class="relative inline-block">
+    <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium">Css University</a>
+    <div class="hidden absolute bg-info text-white py-2 mt-2 rounded-md">
+      <a href="<%#=exam_ug_index_path%>" class="block px-4 py-2 hover:bg-primary-900 text-2xl" data-turbo-frame="new_page">UG</a>
+      <a href="<%#=exam_pg_index_path%>" class="block px-4 py-2 hover:bg-primary-900 text-2xl" data-turbo-frame="new_page">PG</a>
+    </div>
+  </div>
+  
+  <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium">Ma Shakumbari University</a>
+    <a href="<%#=new_contact_path%>" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-xl font-medium" data-turbo-frame="new_page">Contact</a>
+</div>
+
+
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu (hidden by default) -->
+<div class="md:hidden hidden" id="mobile-menu">
+  <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+    <a href="<%#=root_path%>" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+    <div class="relative">
+      <a href="" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" id="mobile-css-menu">Css University</a>
+      <div class="hidden absolute bg-gray-800 text-white py-2 mt-2 rounded-md" id="mobile-css-dropdown">
+        <a href="<%#=exam_ug_index_path%>" class="block px-4 py-2 hover:bg-gray-900" data-turbo-frame="new_page">UG</a>
+        <a href="<%#=exam_pg_index_path%>" class="block px-4 py-2 hover:bg-gray-900" data-turbo-frame="new_page">PG</a>
+      </div>
+    </div>
+    <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Ma Shakumbari University</a>
+  </div>
+</div>
+</nav>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  const cssUniversity = document.querySelector('.relative');
+
+  cssUniversity.addEventListener('mouseenter', () => {
+    const dropdownMenu = cssUniversity.querySelector('.absolute');
+    dropdownMenu.classList.remove('hidden');
+  });
+
+  cssUniversity.addEventListener('mouseleave', () => {
+    const dropdownMenu = cssUniversity.querySelector('.absolute');
+    dropdownMenu.classList.add('hidden');
+  });
+
+    const mobileCssMenu = document.getElementById('mobile-css-menu');
+  const mobileCssDropdown = document.getElementById('mobile-css-dropdown');
+
+  mobileCssMenu.addEventListener('mouseenter', (e) => {
+    e.preventDefault();
+    if (mobileCssDropdown.classList.contains('hidden')) {
+      mobileCssDropdown.classList.remove('hidden');
+    } else {
+      mobileCssDropdown.classList.add('hidden');
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!mobileCssMenu.contains(e.target)) {
+      mobileCssDropdown.classList.add('hidden');
+    }
+  });
+</script>

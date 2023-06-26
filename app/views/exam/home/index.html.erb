@@ -1,2 +1,133 @@
-<h1>Exam::Home#index</h1>
-<p>Find me in app/views/exam/home/index.html.erb</p>
+<style>
+  .responsive-video {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (for 16:9 videos) */
+    height: 10px;
+    overflow: hidden;
+  }
+
+  .responsive-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<%=turbo_frame_tag "new_page" do%>
+<br><div class="text-center text-2xl md:text-4xl font-bold">
+  How it works
+</div><br><br>
+
+<div class="flex justify-center">
+  <div class="w-full sm:w-1/2">
+    <div class="jumbotron">
+      <div class="responsive-video">
+        <iframe width="1191" height="670" src="https://www.youtube.com/embed/Fzmue_RI68o" title="Is ViewComponent the Future of Rails?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><div class="flex justify-center">
+<div class="text-center">
+  <div class="mb-4 md:flex md:items-center">
+    <h3 class="text-lg font-semibold mb-2 md:mr-4 md:w-8 md:h-8 mr-2 text-pink-100 transition-colors duration-150 bg-pink-700 rounded-full focus:shadow-outline hover:bg-pink-800">1</h3>
+    <span class="text-dark text-xl">Step Select University</span>
+  </div>
+
+  <div class="mb-4 md:flex md:items-center">
+    <h3 class="text-lg font-semibold mb-2 md:mr-4 md:w-8 md:h-8 mr-2 text-pink-100 transition-colors duration-150 bg-pink-700 rounded-full focus:shadow-outline hover:bg-pink-800">2</h3>
+    <span class="text-xl">Step Select University in Ug and Pg courses</span>
+  </div>
+
+  <div class="mb-4 md:flex md:items-center">
+    <h3 class="text-lg font-semibold mb-2 md:mr-4 md:w-8 md:h-8 mr-2 text-pink-100 transition-colors duration-150 bg-pink-700 rounded-full focus:shadow-outline hover:bg-pink-800">3</h3>
+    <span class="text-xl">Step Select Course</span>
+  </div>
+
+  <div class="mb-4 md:flex md:items-center">
+    <h3 class="text-lg font-semibold mb-2 md:mr-4 md:w-8 md:h-8 mr-2 text-pink-100 transition-colors duration-150 bg-pink-700 rounded-full focus:shadow-outline hover:bg-pink-800">4</h3>
+    <span class="text-xl">Select Semester and year</span>
+  </div>
+</div>
+</div><br>
+
+
+<div class="bg-gray-200 min-h-screen">
+  <div class="container mx-auto py-8">
+    <h1 class="text-3xl font-bold text-center mb-6">Contact Us</h1>
+    <div class="max-w-full mx-auto bg-white p-6 rounded shadow">
+      <form>
+        <div class="mb-4">
+          <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
+          <input type="text" id="name" name="name" class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring focus:border-blue-500" required>
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+          <input type="email" id="email" name="email" class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring focus:border-blue-500" required>
+        </div>
+        <div class="mb-4">
+          <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
+          <textarea id="message" name="message" class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring focus:border-blue-500" required></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="bg-pink-700 text-white py-2 px-4 rounded hover:bg-pink-800 transition-colors duration-300">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="bg-black text-white text-center py-4 mt-8 font-bold">
+     <div class="container mx-auto py-8">
+    <h1 class="text-3xl font-bold text-center mb-6">About Us</h1>
+    <div class="max-w-full mx-auto bg-black p-6 rounded shadow">
+      <p class="text-lg text-white">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla scelerisque magna vel libero ullamcorper, eget aliquet ipsum faucibus. Maecenas nec felis a justo auctor finibus. In efficitur vestibulum sapien, id auctor lorem ullamcorper vitae. Quisque eu iaculis felis. Cras a diam eget lorem consequat tincidunt. Duis fermentum justo eu tristique posuere. Nullam eleifend, velit vel bibendum faucibus, arcu est interdum tellus, in pulvinar lectus est at mauris.
+      </p>
+      <p class="text-lg text-white">
+        Fusce facilisis tortor a turpis fringilla interdum. Morbi condimentum turpis sed mi aliquet, in finibus urna dapibus. Aliquam erat volutpat. Aenean vitae urna condimentum, aliquet nunc vel, tempor tortor. Proin hendrerit consequat mi in pharetra. Curabitur tristique turpis nec orci accumsan fringilla. Praesent non lacus vel purus fermentum bibendum. In at dui eu elit laoreet placerat.
+      </p>
+    </div>
+  </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  function adjustVideoSize() {
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    var $videoContainer = $("#video-container");
+
+    if (isMobile) {
+      $videoContainer.removeClass("w-full").addClass("sm:w-2/3 lg:w-6/2");
+    } else {
+     $videoContainer.addClass("w-full").removeClass("sm:w-2/3 lg:w-2/3");
+    }
+  }
+
+  adjustVideoSize();
+  $(window).resize(adjustVideoSize);
+});
+
+
+// FOR VIDEO
+  
+</script>
+
+
+
+<%end%>
+
+
+
