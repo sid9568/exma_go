@@ -1,0 +1,2 @@
+module Exam::HomeHelper
+end
