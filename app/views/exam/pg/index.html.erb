@@ -1,0 +1,29 @@
+<%= turbo_frame_tag "new_page" do %>
+  <br>
+  <div class="container">
+    <div class="row col-xl-12">
+      <% if @coures_pg.any? %>
+        <% @coures_pg.each_slice(2) do |course| %>
+          <div class="col-lg-6">
+            <% course.each do |cat| %><br>
+              <a href="#">
+                <div class="form-group">
+                  <div class="form-control rounded text-center">
+                    <%= cat.university_name %>
+                  </div>
+                </div>
+              </a>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="flex justify-center items-center mt-8">
+          <div class="text-center">
+            <img src="no_records_image.png" alt="No records found" class="w-32 h-32 mx-auto mb-4">
+            <p class="text-gray-500">No records found.</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
