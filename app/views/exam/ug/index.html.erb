@@ -1,6 +1,13 @@
 <%= turbo_frame_tag "new_page" do %>
-  <br>
-  <div class="container">
+  <br> <br> <br>
+  <div class="container max-w-screen-lg mx-auto px-5">
+  <a href="<%#=admin_add_request_path%>">
+    <span class="btn btn-success btn-lg">
+      &nbsp; <i class="fa fa-plus"></i> Css University
+    </span>
+  </a>
+</div><br>
+  <div class="container max-w-screen-lg mx-auto bg-white p-3 rounded shadow">
     <div class="row col-xl-12">
       <% if @coures_ug.any? %>
         <% @coures_ug.each_slice(2) do |course| %>
@@ -9,7 +16,7 @@
               <a href="#">
                 <div class="form-group">
                   <div class="form-control rounded text-center">
-                    <%= cat.university_name %>
+                    <%= cat.course_name %>
                   </div>
                 </div>
               </a>
@@ -24,6 +31,9 @@
           </div>
         </div>
       <% end %>
+      <% end %>
     </div>
   </div>
-<% end %>
+
+
+
