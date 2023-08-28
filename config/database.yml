@@ -19,4 +19,4 @@ production:
   database: exam_word_production
   username: root
   password: password
-  host: localhost  # Specify the host where your production MySQL server is located
+  socket: /var/run/mysqld/mysqld.sock
