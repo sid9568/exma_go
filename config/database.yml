@@ -3,13 +3,15 @@ development:
   database: exam_word_development
   username: root
   password: password
+  host: localhost
+  socket: /var/run/mysqld/mysqld.sock
+
 
 test:
   adapter: mysql2
   database: exam_word_development_test
   username: root
   password: password
-  socket: /var/run/mysqld/mysqld.sock
 
 
 production:
