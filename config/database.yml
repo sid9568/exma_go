@@ -9,3 +9,11 @@ test:
   database: exam_word_development_test
   username: root
   password: password
+
+
+production:
+  adapter: mysql2
+  database: exam_word_production
+  username: root
+  password: password
+  host: localhost  # Specify the host where your production MySQL server is located
