@@ -9,6 +9,7 @@ test:
   database: exam_word_development_test
   username: root
   password: password
+  socket: /var/run/mysqld/mysqld.sock
 
 
 production:
