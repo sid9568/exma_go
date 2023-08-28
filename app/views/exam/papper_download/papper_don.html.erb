@@ -1,0 +1,43 @@
+<%= turbo_frame_tag "new_page" do %>
+  <br> 
+
+
+
+
+
+<div class="container mx-auto p-24 lg:p-72 rounded shadow relative">
+  <!-- Background Image -->
+  <div class="bg-cover bg-center bg-no-repeat absolute inset-0" style="background-image: url('http://localhost:3000/assets/background2.png');"></div>
+
+  <!-- Buttons -->
+  <div class="relative z-10 text-center space-y-4 sm:flex sm:justify-center">
+    <!-- First Button (Mobile) -->
+    <a href="#" class="block sm:hidden bg-pink-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Undergraduate
+    </a>
+
+    <!-- Second Button (Mobile) -->
+    <a href="#" class="block sm:hidden bg-yellow-400 hover:bg-orange-400 text-white font-bold py-2 px-4 rounded">
+      Postgraduate
+    </a>
+
+    <!-- First Button (Laptop) -->
+    <a href="#" class="hidden sm:block bg-pink-700 hover:bg-blue-700 text-white font-bold py-2 mx  mx-20 px-20 rounded">
+      Undergraduate
+    </a>
+
+    <!-- Second Button (Laptop) -->
+    <a href="#" class="hidden sm:block bg-yellow-400 hover:bg-blue-700 text-white font-bold py-2 px-20 rounded">
+      Postgraduate
+    </a>
+  </div>
+
+  <!-- Your content goes here -->
+</div>
+
+
+
+
+<%end%>
+
+

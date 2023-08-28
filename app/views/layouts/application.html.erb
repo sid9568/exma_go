@@ -9,6 +9,8 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= turbo_include_tags %>
+
     <link href=
 "https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
           rel="stylesheet">
@@ -19,7 +21,7 @@
 
 
 
-  <body class="bg-gray-100">
+  <body class="bg-white">
     <%= render "exam/home/navbar"%>
 
       <%= yield %>

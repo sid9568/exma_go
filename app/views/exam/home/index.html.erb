@@ -15,19 +15,21 @@
   }
 </style>
 <%=turbo_frame_tag "new_page" do%>
-<br><div class="text-center text-2xl md:text-4xl font-bold">
-  How it's Work	
-</div><br><br>
+<div class="container mx-auto pt-24 py-5" style="background-image: url('http://localhost:3000/assets/background2.png');">
+  <div class="text-center md:text-4xl">
+    How it Works
+  </div><br>
 
 <div class="flex justify-center">
   <div class="w-full sm:w-1/2">
     <div class="jumbotron">
       <div class="responsive-video">
-        <iframe width="1191" height="670" src="https://www.youtube.com/embed/Fzmue_RI68o" title="Is ViewComponent the Future of Rails?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe width="150%" height="120%" src="https://www.youtube.com/embed/Fzmue_RI68o" title="Is ViewComponent the Future of Rails?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 </div>
+
 
 <br><br><div class="flex justify-center">
 <div class="text-center">
@@ -51,28 +53,39 @@
     <span class="text-xl">Select Semester and year</span>
   </div>
 </div>
-</div><br>
+</div>
+</div><br><br>
 
 
-<div class="bg-gray-200 min-h-screen">
+<div class="container mx-auto pt-20 py-5" style="background-image: url('http://localhost:3000/assets/contact.jpg');" >
   <div class="container mx-auto py-8">
-    <h1 class="text-3xl font-bold text-center mb-6">Contact Us</h1>
-    <div class="max-w-full mx-auto bg-white p-6 rounded shadow">
+    <h1 class="text-3xl font-bold text-center mb-6 text-danger">Contact Us</h1>
+    <div class="max-w-full mx-auto bg-white p-6 rounded-md
+
+ shadow">
       <form>
         <div class="mb-4">
           <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
-          <input type="text" id="name" name="name" class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring focus:border-blue-500" required>
+          <input type="text" id="name" name="name" class="w-full border border-gray-300 p-2 rounded-md
+
+ focus:outline-none focus:ring focus:border-blue-500" required>
         </div>
         <div class="mb-4">
           <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
-          <input type="email" id="email" name="email" class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring focus:border-blue-500" required>
+          <input type="email" id="email" name="email" class="w-full border border-gray-300 p-2 rounded-md
+
+ focus:outline-none focus:ring focus:border-blue-500" required>
         </div>
         <div class="mb-4">
           <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
-          <textarea id="message" name="message" class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring focus:border-blue-500" required></textarea>
+          <textarea id="message" name="message" class="w-full border border-gray-300 p-2 rounded-md
+
+ focus:outline-none focus:ring focus:border-blue-500" required></textarea>
         </div>
         <div class="text-center">
-          <button type="submit" class="bg-pink-700 text-white py-2 px-4 rounded hover:bg-pink-800 transition-colors duration-300">Submit</button>
+          <button type="submit" class="bg-pink-700 text-white py-2 px-4 rounded-md
+
+ hover:bg-pink-800 transition-colors duration-300">Submit</button>
         </div>
       </form>
     </div>

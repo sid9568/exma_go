@@ -1,0 +1,2 @@
+module Exam::PapperDownloadHelper
+end

@@ -1,0 +1,86 @@
+
+<div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">CodingLab</span>
+    </div>
+      <ul class="nav-links">
+        <li data-turbo-frame="new_page">
+          <a href="<%=admin_home_dashboard_path%>" class="active">
+            <i class='bx bx-grid-alt'></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+        </li>
+
+  <li>
+    <%#= turbo_frame_tag "new_message", target: "_top" do %>
+    <a href="<%= admin_category_index_path %>">
+      <i class='bx bx-box'></i>
+      <span class="links_name">Category</span>
+    </a>
+  </li>
+  <%#end%>
+  <li>
+
+<a href="<%= admin_sub_category_index_path %>">
+      <i class='bx bx-box'></i>
+      <span class="links_name">Sub Category</span>
+    </a>
+  </li>
+
+        <!-- <li>
+          <a href="#">
+            <i class='bx bx-list-ul' ></i>
+            <span class="links_name">Order list</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-pie-chart-alt-2' ></i>
+            <span class="links_name">Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name">Stock</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-book-alt' ></i>
+            <span class="links_name">Total order</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-user' ></i>
+            <span class="links_name">Team</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-message' ></i>
+            <span class="links_name">Messages</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-heart' ></i>
+            <span class="links_name">Favrorites</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-cog' ></i>
+            <span class="links_name">Setting</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <a href="#">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li> -->
+      </ul>
+  </div>
