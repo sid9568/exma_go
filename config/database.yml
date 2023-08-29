@@ -19,4 +19,4 @@ production:
   database: exam_word_production
   username: root
   password: password
-  socket: /var/run/mysqld/mysqld.sock
+  socket: /var/run/mysqld/mysqld.sock  # Ensure this matches the MySQL socket path
