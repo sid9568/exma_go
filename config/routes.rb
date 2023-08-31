@@ -15,10 +15,18 @@ Rails.application.routes.draw do
     get 'sub_category/index'
     get 'sub_category/new'
     post 'sub_category/create'
+    get 'program_offer/index'
+    get 'program_offer/new'
+    post 'program_offer/create'
+
+
+
     end
   end
 
+
   namespace :exam do
+    get 'program_offer/index'
     get 'papper_download/papper_don'
     get 'pg/index'
     get 'ug/index'

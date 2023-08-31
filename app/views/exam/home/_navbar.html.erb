@@ -95,7 +95,7 @@ display: block;
             </a>
             <div class="dropdown-content hidden">
               <% category.sub_categories.each do |subcategory| %>
-                <a href="<%= exam_papper_download_papper_don_path(category: category.id, subcategory: subcategory.id) %>" class="text-center text-sm">
+                <a href="<%= exam_program_offer_index_path(category: category.id, subcategory: subcategory.id) %>" class="text-center text-sm">
                   <%= subcategory.sub_title %>
                 </a>
               <% end %>
@@ -190,13 +190,18 @@ openDropdown.classList.remove('show');
 }
 }
 </script>
+
+
+
 </nav><br>
 <div class="container">
 <div class="row justify-content-center">
 <div class="col-lg-6 col-md-12 text-center">
+          <%=form_for :users,url:exam_program_offer_index_path,method: :get,:html=>{:class=>"form-inline"} do |f|%>
+
 <div class="card-body">
   <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search">
+    <input type="text" name='keyword' class="form-control" placeholder="Search">
     <div class="input-group-append">
      <button type="submit" class="inline-flex items-center py-2.5 px-3 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
         <svg class="w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -207,6 +212,7 @@ openDropdown.classList.remove('show');
     </div>
   </div>
 </div>
+<%end%>
 </div>
 </div>
 </div>

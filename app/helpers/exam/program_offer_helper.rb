@@ -1,0 +1,2 @@
+module Exam::ProgramOfferHelper
+end

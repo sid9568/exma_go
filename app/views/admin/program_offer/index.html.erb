@@ -1,0 +1,80 @@
+<%= turbo_frame_tag "new_message" do %>
+
+<!DOCTYPE html>
+<!-- Coding by CodingNepal | www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Responsiive Admin Dashboard | CodingLab </title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <style type="text/css">
+ 
+   </style>
+<body>
+<div class="col-lg-10 ml-64 mr-5 mt-5">
+  <div class="card mt-4 mr-4">
+    <div class="card-body flex justify-between">
+      <h5 class="text-lg font-bold">Category list</h5>
+      <div class="font-bold ml-auto mr-5">
+        <a href="<%=admin_program_offer_new_path%>">
+        Add Program
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+        
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg ml-64 mr-5 mt-5">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-sm text-gray-700  bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-6 py-3">
+                    Id
+                </th>
+                
+                <th scope="col" class="px-6 py-3">
+                    Title
+                </th>
+                
+                <th scope="col" class="px-6 py-3">
+                    Created at
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+          <%@program.each do |cat|%>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+               <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <%=cat.id%>
+                </th>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <a href="<%=admin_sub_category_index_path%>">
+                    <%=cat.title%>
+                </a>
+                </th>
+                <td class="px-6 py-4">
+                    <%=cat.created_at%>
+                </td>
+               
+                <td class="px-6 py-4">
+                    <a href="<%=admin_category_edit_path(cat)%>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <a href="<%=admin_destroy_category_path(cat)%>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline ml-5">Delete</a>
+                </td>
+            </tr>
+            <%end%>
+        </tbody>
+    </table>
+</div>
+<%end%>

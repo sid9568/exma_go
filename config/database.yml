@@ -23,3 +23,5 @@ production:
   password: <%= ENV.fetch("DB_PASSWORD", "") %>
   host: <%= ENV.fetch('DB_HOSTNAME', '') %>
   port: <%= ENV.fetch('DB_PORT', 3306) %>
+  socket: /var/run/mysqld/mysqld.sock
+
