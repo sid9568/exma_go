@@ -1,0 +1,28 @@
+<%= turbo_frame_tag "new_page" do %>
+  <br> 
+
+<div class="container mx-auto p-20 lg:p-72  rounded shadow relative bg-cover" style="background-image: url('/assets/program.jpg');">
+  <!-- Background Image -->
+
+  <!-- Grid of Buttons -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <!-- Button 1 (Mobile and Laptop) -->
+    <%@program.each do |program|%>
+    <a href="<%=exam_porgram_offer_list_index_path%>" class="bg-<%=program.color%> text-center text-sm hover:bg-blue-700 text-white font-bold py-3 px-2  rounded">
+      <%=program.title%>
+    </a>
+
+    <%end%>
+
+  </div>
+
+  <!-- Your content goes here -->
+</div>
+
+
+
+
+
+<%end%>
+
+

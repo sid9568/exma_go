@@ -20,7 +20,7 @@
     <div class="card-body flex justify-between">
       <h5 class="text-lg font-bold">Category list</h5>
       <div class="font-bold ml-auto mr-5">
-        <a href="<%=admin_program_offer_new_path%>">
+        <a href="<%=admin_porgram_offer_list_new_path%>">
         Add Program
         </a>
       </div>
@@ -54,7 +54,7 @@
             </tr>
         </thead>
         <tbody>
-          <%@program.each do |cat|%>
+          <%@program_offer_list.each do |cat|%>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     <%=cat.id%>

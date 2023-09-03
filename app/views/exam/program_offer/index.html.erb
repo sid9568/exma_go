@@ -1,22 +1,19 @@
 <%= turbo_frame_tag "new_page" do %>
   <br> 
 
-<div class="container mx-auto p-15 lg:p-40  rounded shadow relative bg-cover" style="background-image: url('http://localhost:3000/assets/program.jpg');">
+<div class="container mx-auto p-20 lg:p-72  rounded shadow relative bg-cover" style="background-image: url('/assets/background2.png');">
   <!-- Background Image -->
 
   <!-- Grid of Buttons -->
-  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <!-- Button 1 (Mobile and Laptop) -->
     <%@aa.each do |program|%>
-    <a href="#" class="bg-<%=program.color%> text-center text-sm hover:bg-blue-700 text-white font-bold py-2 px-4  rounded">
+    <a href="<%=exam_porgram_offer_list_index_path(id:program.id)%>" class="bg-<%=program.color%> text-center text-sm hover:bg-blue-700 text-white font-bold py-3 px-2  rounded">
       <%=program.title%>
     </a>
 
     <%end%>
 
- 
-
-    <!-- Repeat this pattern for the remaining buttons -->
   </div>
 
   <!-- Your content goes here -->

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_31_072801) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_01_061856) do
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -31,6 +31,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_072801) do
     t.index ["sub_category_id"], name: "index_papper_donwloads_on_sub_category_id"
   end
 
+  create_table "program_offer_lists", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title"
+    t.string "color"
+    t.bigint "program_offer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["program_offer_id"], name: "index_program_offer_lists_on_program_offer_id"
+  end
+
   create_table "program_offers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.string "color"
@@ -38,6 +47,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_072801) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["sub_category_id"], name: "index_program_offers_on_sub_category_id"
+  end
+
+  create_table "programs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title"
+    t.bigint "sub_category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sub_category_id"], name: "index_programs_on_sub_category_id"
   end
 
   create_table "sub_categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -49,5 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_072801) do
   end
 
   add_foreign_key "papper_donwloads", "sub_categories"
+  add_foreign_key "program_offer_lists", "program_offers"
   add_foreign_key "program_offers", "sub_categories"
+  add_foreign_key "programs", "sub_categories"
 end

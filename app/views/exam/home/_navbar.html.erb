@@ -2,10 +2,7 @@
 .dropdown a:hover {background-color: #ddd;}
 .show {display: block;}
 .dropbtn {
-background-color: #04AA6D;
-color: white;
-padding: 16px;
-font-size: 16px;
+
 border: none;
 }
 .dropdown {
@@ -69,6 +66,13 @@ background-color: #e5e5e5;
 .dropdown2.open .dropdown-content2 {
 display: block;
 }
+.show {
+display: block;
+}
+.dropdown-content1 {
+  display: none;
+  /* Your other styles for the dropdown content */
+} 
 </style>
 <nav class="bg-faded shadow-lg">
   <div class="max-w-6xl mx-auto px-4">
@@ -78,7 +82,7 @@ display: block;
         <!-- Website Logo -->
         <div class="flex justify-between ml-4">
           <a href="#" class="flex items-center py-4 px-2">
-            <span class="font-semibold text-gray-500 text-lg">Logo</span>
+            <span class="font-semibold text-gray-500 text-lg">Go Exam</span>
           </a>
           
         </div>
@@ -87,27 +91,21 @@ display: block;
         <div class="hidden md:flex items-center space-x-10">
           <a href="<%= root_path %>" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Home</a>
           
-
-        <% Category.all.each do |category| %>
+          <% Category.all.each do |category| %>
           <div class="dropdown">
             <a href="#" class="py-4 px-2 text-green-500 font-semibold hover:text-green-500 transition duration-300">
               <%= category.title %>
             </a>
             <div class="dropdown-content hidden">
               <% category.sub_categories.each do |subcategory| %>
-                <a href="<%= exam_program_offer_index_path(category: category.id, subcategory: subcategory.id) %>" class="text-center text-sm">
-                  <%= subcategory.sub_title %>
-                </a>
+              <a href="<%= exam_program_offer_index_path(category: category.id, subcategory: subcategory.id) %>" class="text-center text-sm">
+                <%= subcategory.sub_title %>
+              </a>
               <% end %>
             </div>
           </div>
-        <% end %>
-
-
-
-
-       
-        
+          <% end %>
+          
           <a href="#" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Contact Us</a>
         </div>
         <div class="hidden absolute right-0 w-56 mt-2 bg-white shadow-lg origin-top-right rounded-md ring-1 ring-black ring-opacity-5">
@@ -117,14 +115,10 @@ display: block;
           </div>
         </div>
       </div>
-      <!-- Secondary Navbar items -->
-      <!--   <div class="hidden md:flex items-center space-x-3 ">
-        <a href="" class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300">Log In</a>
-        <a href="" class="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Sign Up</a>
-      </div> -->
-      <!-- Mobile menu button -->
+      
+      <!-- Mobile reponsive -->
       <div class="md:hidden flex items-center">
-        <button class="outline-none mobile-menu-button">
+        <button class="outline-none mobile-menu-button" data-target="mobileDropdown">
         <svg class=" w-6 h-6 text-gray-500 hover:text-green-500 "
           x-show="!showMenu"
           fill="none"
@@ -141,86 +135,63 @@ display: block;
   </div>
 </div>
 <!-- mobile menu -->
-<div class="hidden mobile-menu" data-controller="navbar">
+<div id="mobileDropdown" class="hidden mobile-menu" data-controller="navbar">
   <ul>
-    <li class="active"><a href="<%= root_path %>" class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">Home</a></li>
-    <div class="dropdown1">
-      <div class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
-        <li class="flex items-centers"><a href="##" onclick="show_hide()" class="button">Ccs University </a><svg class="w-3 h-2 text-gray-800 dark:text-white ml-2 mt-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"/>
-      </svg></li>
-      <div id="myDropdown" class="dropdown-content1">
+    <li><a href="<%= root_path %>" class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">Home</a></li>
+
+    <div class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold dropdown1">
+      <button class="dropbtn" onclick="toggleDropdown('myDropdown1', this)">Ccs University</button>
+      <div id="myDropdown1" class="dropdown-content1">
         <a href="<%=exam_ug_index_path%>">About</a>
         <a href="<%=exam_pg_index_path%>">Contact</a>
       </div>
     </div>
-  </div>
-  <div class="dropdown2">
-    <div class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">
-      <li class="flex items-centers"><a href="##" onclick="show_hide()" class="button">Ma Shakumbari University</a><svg class="w-3 h-2 text-gray-800 dark:text-white ml-2 mt-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
-      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"/>
-    </svg></li>
-    <div id="myDropdownn" class="dropdown-content2">
-      <a href="<%=exam_ug_index_path%>">About</a>
-      <a href="<%=exam_pg_index_path%>">Contact</a>
+
+    <div class="block text-sm px-2 py-4 text-white bg-gray-100 font-semibold dropdown2">
+      <button class="dropbtn" onclick="toggleDropdown('myDropdown2', this)">Ma Shakumbari University</button>
+      <div id="myDropdown2" class="dropdown-content2">
+        <a href="<%=exam_ug_index_path%>">About</a>
+        <a href="<%=exam_pg_index_path%>">Contact</a>
+      </div>
     </div>
-  </div>
+  </ul>
 </div>
-<li><a href="#about" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">About</a></li>
-<li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Contact Us</a></li>
-</ul>
-</div>
+
+
+
 <script>
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-document.getElementById("myDropdown").classList.toggle("show");
-}
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-if (!event.target.matches('.dropbtn')) {
-var dropdowns = document.getElementsByClassName("dropdown-content");
-var i;
-for (i = 0; i < dropdowns.length; i++) {
-var openDropdown = dropdowns[i];
-if (openDropdown.classList.contains('show')) {
-openDropdown.classList.remove('show');
-}
-}
-}
-}
+  var activeButton = null; // To store the active button
+
+  function toggleMobileMenu(targetId) {
+    var targetMenu = document.getElementById(targetId);
+    if (targetMenu) {
+      targetMenu.classList.toggle("show");
+    }
+  }
+
+  function toggleDropdown(dropdownId, button) {
+    var dropdown = document.getElementById(dropdownId);
+    if (dropdown.style.display === "block") {
+      dropdown.style.display = "none";
+      button.classList.remove("active");
+    } else {
+      dropdown.style.display = "block";
+      if (activeButton) {
+        activeButton.classList.remove("active");
+      }
+      button.classList.add("active");
+      activeButton = button;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var mobileMenuButton = document.querySelector(".mobile-menu-button");
+    if (mobileMenuButton) {
+      mobileMenuButton.addEventListener("click", function () {
+        var target = mobileMenuButton.getAttribute("data-target");
+        toggleMobileMenu(target);
+      });
+    }
+  });
 </script>
 
-
-
-</nav><br>
-<div class="container">
-<div class="row justify-content-center">
-<div class="col-lg-6 col-md-12 text-center">
-          <%=form_for :users,url:exam_program_offer_index_path,method: :get,:html=>{:class=>"form-inline"} do |f|%>
-
-<div class="card-body">
-  <div class="input-group">
-    <input type="text" name='keyword' class="form-control" placeholder="Search">
-    <div class="input-group-append">
-     <button type="submit" class="inline-flex items-center py-2.5 px-3 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        <svg class="w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-        </svg>Search
-    </button>
-
-    </div>
-  </div>
-</div>
-<%end%>
-</div>
-</div>
-</div>
-<!-- <br><br><div class="dropdown1">
-<button onclick="myFunction()" class="dropbtn">Dropdown</button>
-<div id="myDropdown" class="dropdown-content1">
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</div>
-</div> -->
