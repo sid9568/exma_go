@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'porgram_offer_list/index'
-     get 'porgram_offer_list/new'
+    get 'porgram_offer_list/new'
     post 'porgram_offer_list/create'
     get 'porgram_offer_list/:id', to: 'porgram_offer_list#destroy', as: 'porgram_offer_list_destroy'
     get 'home/dashboard' , to: 'home#dashboard'
